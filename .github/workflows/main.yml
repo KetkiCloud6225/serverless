@@ -38,6 +38,7 @@ jobs:
       - name: Install software
         run: |
           zip SNS.zip index.js
+          ls -l
 
       - name: Configure AWS credentials from Test account
         uses: aws-actions/configure-aws-credentials@v1
@@ -48,7 +49,7 @@ jobs:
           
       - name: Copy files to the S3 bucket with the AWS CLI
         run: |
-          aws s3 sync SNS.zip s3://${{ secrets.S3_CODEDEPLOY_BUCKET_NAME_PROD }}  
+          aws s3 sync ./SNS.zip s3://${{ secrets.S3_CODEDEPLOY_BUCKET_NAME_PROD }}  
           
 #       - name: Run Code deploy
 #         run: |
