@@ -39,9 +39,13 @@ jobs:
         run: |
           zip SNS.zip index.js
 
+      - name: Configure AWS credentials from Test account
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_PROD }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_ID_PROD }}
+          aws-region: us-east-1
+          
       - name: Run Code deploy
         run: |
-          aws configure set region us-east-1 --profile default
-          aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }} --profile default
-          aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY_ID }} --profile default
           aws lambda update-function-code --function-name lambda-handler --zip-file fileb://serverless.zip
