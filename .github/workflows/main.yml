@@ -46,6 +46,10 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY_ID_PROD }}
           aws-region: us-east-1
           
+      - name: Copy files to the S3 bucket with the AWS CLI
+        run: |
+          aws s3 sync ./codedeploy_files s3://${{ secrets.S3_CODEDEPLOY_BUCKET_NAME_PROD }}  
+          
       - name: Run Code deploy
         run: |
           aws lambda update-function-code --function-name csye6225-spring2022 --zip-file fileb://SNS.zip
