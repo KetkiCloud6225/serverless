@@ -1,0 +1,19 @@
+{
+  "name": "serverless",
+  "version": "1.0.0",
+  "description": "serverless",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kuleketki/serverless.git"
+  },
+  "author": "Ketki Kule",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kuleketki/serverless/issues"
+  },
+  "homepage": "https://github.com/kuleketki/serverless#readme"
+}
