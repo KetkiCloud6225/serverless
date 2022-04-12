@@ -48,4 +48,4 @@ jobs:
           
       - name: Run Code deploy
         run: |
-          aws lambda update-function-code --function-name lambda-handler --zip-file fileb://SNS.zip
+          aws lambda update-function-code --function-name csye6225-spring2022 --zip-file fileb://SNS.zip
