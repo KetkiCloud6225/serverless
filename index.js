@@ -22,7 +22,8 @@ var table = {
     }
   }
   console.log("Adding a new item...");
-
+  console.log("email sent "+email);
+  console.log("token sent "+token);
   //Putting an item to DynamoDB Table
 docClient.put(table, function(err, data) {
     if (err) {
