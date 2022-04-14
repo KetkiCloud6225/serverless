@@ -24,11 +24,11 @@ exports.handler = async function (event) {
     Item: {
       "username": email,
       "token": token,
+      "MessageType": "Account Verification",
       "TimeToLive": expirationTime
     }
   }
 
-  console.log("Adding a new item...");
   console.log("email sent " + email);
   console.log("token sent " + token);
   //Putting an item to DynamoDB Table
@@ -52,7 +52,7 @@ exports.handler = async function (event) {
           Charset: "UTF-8",
           Data: '<html><head>' +
             '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />' +
-            '<title>' + "test" + '</title>' +
+            '<title>' + 'Account Verification' + '</title>' +
             '</head><body>' +
             'Click on the link to verify your account. It will expire in 5 minutes.' +
             '<br><br>' +
