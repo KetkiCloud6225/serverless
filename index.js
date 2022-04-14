@@ -1,3 +1,4 @@
+var moment = require("moment-timezone");
 var aws = require("aws-sdk");
 aws.config.update({
   region: 'us-east-1'
@@ -6,17 +7,21 @@ var ses = new aws.SES({
   region: "us-east-1"
 });
 var docClient = new aws.DynamoDB.DocumentClient({
-  region: 'us-east-1'
+  region: "us-east-1"
 });
 exports.handler = async function (event) {
   let message = event.Records[0].Sns.Message
   let json = JSON.parse(message);
   let email = json.username;
   let token = json.token;
+
+  moment(date.getTime()).tz("America/Los_Angeles").format("DD-MM-YYYY");
+
   const seconds = 2 * 60;
   const secondsInEpoch = Math.round(Date.now() / 1000);
-  const expirationTime = secondsInEpoch + seconds;
+  //const expirationTime = secondsInEpoch + seconds;
   const currentTime = Math.round(Date.now() / 1000);
+  var expirationTime = (new Date).getTime() + (60*1000*2);
 
   //Creating a table for DynamoDB
   var table = {
@@ -27,6 +32,7 @@ exports.handler = async function (event) {
       "TimeToExist": expirationTime
     }
   }
+
   console.log("Adding a new item...");
   console.log("email sent " + email);
   console.log("token sent " + token);
