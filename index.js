@@ -1,3 +1,4 @@
+
 var aws = require("aws-sdk");
 aws.config.update({
   region: 'us-east-1'
@@ -16,9 +17,9 @@ exports.handler = async function (event) {
 
   const seconds = 2 * 60;
   const secondsInEpoch = Math.round(Date.now() / 1000);
-  //const expirationTime = secondsInEpoch + seconds;
+  const expirationTime = secondsInEpoch + seconds;
   const currentTime = Math.round(Date.now() / 1000);
-  var expirationTime = (new Date).getTime() + (60*1000*2);
+  //var expirationTime = (new Date).getTime() + (60*1000*2);
 
   //Creating a table for DynamoDB
   var table = {
