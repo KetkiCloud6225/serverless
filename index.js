@@ -1,4 +1,3 @@
-var moment = require("moment-timezone");
 var aws = require("aws-sdk");
 aws.config.update({
   region: 'us-east-1'
@@ -14,8 +13,6 @@ exports.handler = async function (event) {
   let json = JSON.parse(message);
   let email = json.username;
   let token = json.token;
-
-  moment(date.getTime()).tz("America/Los_Angeles").format("DD-MM-YYYY");
 
   const seconds = 2 * 60;
   const secondsInEpoch = Math.round(Date.now() / 1000);
