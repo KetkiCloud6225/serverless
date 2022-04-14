@@ -26,7 +26,7 @@ exports.handler = async function (event) {
     Item: {
       "username": email,
       "token": token,
-      "TimeToExist": expirationTime
+      "TimeToLive": expirationTime
     }
   }
 
