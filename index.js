@@ -56,7 +56,7 @@ exports.handler = async function (event) {
             '</head><body>' +
             'Click on the link to verify your account. It will expire in 5 minutes.' +
             '<br><br>' +
-            "<a href=\"http://prod.ketkikule.me/v1/verifyUserEmail?email=" + email + "&token=" + token + "\">" + "Verify Email" + "</a>" +
+            "<a href=\"https://prod.ketkikule.me/v1/verifyUserEmail?email=" + email + "&token=" + token + "\">" + "Verify Email" + "</a>" +
             '</body></html>',
         },
       },
